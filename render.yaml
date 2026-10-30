@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: shop-hoang-quan-miniapp
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    disk:
+      name: shop-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: SHOP_DB_FILE
+        value: /var/data/tele_shop.sqlite3
+      - key: SHOP_WEB_HOST
+        value: 0.0.0.0
+      - key: DASHBOARD_USER
+        sync: false
+      - key: DASHBOARD_PASSWORD
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: VIETQR_BANK_NAME
+        sync: false
+      - key: VIETQR_BANK_ID
+        sync: false
+      - key: VIETQR_STK
+        sync: false
+      - key: VIETQR_CTK
+        sync: false
+      - key: BANK_V3_NAME
+        sync: false
+      - key: BANK_V3_TOKEN
+        sync: false
